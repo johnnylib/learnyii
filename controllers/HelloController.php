@@ -106,9 +106,9 @@ class HelloController extends Controller{
         //var_dump($res);
         //批量查询。每次只取指定数量[batch]的数据，直到去出所有数据
         $batch = 2;
-        foreach(Country::find()->asArray()->batch($batch) as $v){
-//            var_dump($v);
-//            echo "<hr><hr>";
+        foreach(Country::find()->asArray()->each($batch) as $v){
+            var_dump($v);
+            echo "<hr><hr>";
         }
 //==============================================================================
         //删除数据
@@ -147,7 +147,8 @@ class HelloController extends Controller{
 
         //获取城市
         $country_obj = Country::find()->where(['id'=>25])->one();
-        $city = $country_obj->getCity();
+//        $city = $country_obj->getCity();
+        $city = $country_obj->city;
         var_dump($city);
 
 

@@ -25,7 +25,10 @@ class Country extends ActiveRecord{
 
 
     public function getCity(){
-        return $this->hasMany(City::className(),['country_id'=>'id'])->asArray()->all();
+
+       // var_dump(City::className());  //app\models\City
+//        return $this->hasMany(City::className(),['country_id'=>'id'])->asArray()->all();
+        return $this->hasMany(City::className(),['country_id'=>'id'])->asArray();
 
     }
 
